@@ -1,0 +1,23 @@
+// Media Queries
+@mixin md {
+  @media screen and (min-width: 48em) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: 62em) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: 75em) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: min(70rem, 100% - 30px);
+  margin-inline: auto;
+}

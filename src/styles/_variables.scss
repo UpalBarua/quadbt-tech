@@ -1,0 +1,52 @@
+:root {
+  // TYPOGRAPHY
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Palanquin', sans-serif;
+
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-size-2xl: 2.375rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 3.5rem;
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  // COLORS
+  --color-light-300: hsl(0, 0%, 100%);
+  --color-light-400: hsl(220, 4%, 86%);
+  --color-light-500: hsl(210, 4%, 52%);
+
+  --color-dark-300: hsl(210, 39%, 9%);
+  --color-dark-400: hsl(210, 83%, 2%);
+  --color-dark-500: hsl(210, 100%, 0%);
+
+  --color-accent-300: hsl(345, 100%, 62%);
+  --color-accent-400: hsl(345, 79%, 54%);
+  --color-accent-500: hsl(345, 67%, 48%);
+
+  // SPACING
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.875rem;
+  --spacing-lg: 1.125rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
+  --spacing-3xl: 2.75rem;
+  --spacing-4xl: 3.5rem;
+  --spacing-5xl: 4rem;
+
+  // SHADOWS
+  --shadow-sm: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  --shadow-md: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  --shadow-lg: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  --border-radius-sm: 6px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 10px;
+}

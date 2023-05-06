@@ -1,0 +1,16 @@
+@use '../../styles/index.scss' as *;
+
+.home {
+  @include container;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding-block: var(--spacing-lg);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+  }
+}
