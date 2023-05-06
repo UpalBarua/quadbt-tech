@@ -41,6 +41,10 @@ const BookingModal = ({
         JSON.stringify([...bookedShows, newBooking])
       );
     }
+
+    setName('');
+    setEmail('');
+    setIsModalOpen(false);
   };
 
   return (
