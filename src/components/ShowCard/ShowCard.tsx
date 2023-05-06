@@ -44,7 +44,7 @@ const ShowCard = ({
             </li>
           )}
         </ul>
-        {parse(summary.slice(0, 150) + '...')}
+        {summary && parse(summary.slice(0, 150) + '...')}
         <Link className={styles.link} to={`/shows/${id}`}>
           Details
         </Link>

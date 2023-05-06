@@ -69,7 +69,10 @@ const Details = () => {
             <BsBookmark />
             <span>Book</span>
           </button>
-          <Link className={styles.watchBtn} to={network?.officialSite}>
+          <Link
+            className={styles.watchBtn}
+            to={network?.officialSite}
+            target="_blank">
             <BiLinkExternal />
             <span>Watch Now</span>
           </Link>

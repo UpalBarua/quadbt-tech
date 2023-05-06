@@ -39,4 +39,30 @@
     color: var(--color-light-500);
     font-weight: var(--font-weight-semibold);
   }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .searchBar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background-color: var(--color-dark-500);
+    padding-inline: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid transparent;
+    font-size: var(--font-size-lg);
+
+    .input {
+      color: var(--color-light-300);
+      background-color: transparent;
+      padding: var(--spacing-sm);
+      outline: 0;
+      border: 0;
+    }
+  }
 }
