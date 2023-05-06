@@ -7,7 +7,6 @@ import styles from './ShowCard.module.scss';
 
 const ShowCard = ({
   id,
-  genres,
   image,
   language,
   name,

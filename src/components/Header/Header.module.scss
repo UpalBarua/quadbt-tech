@@ -1,0 +1,62 @@
+@use '../../styles/index.scss' as *;
+
+.header {
+  background-color: var(--color-dark-300);
+  position: fixed;
+  width: 100%;
+  right: 0;
+  left: 0;
+
+  .container {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+
+    @include md {
+      flex-direction: row;
+      align-items: center;
+      padding-block: var(--spacing-sm);
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding-block: var(--spacing-lg);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .searchBar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background-color: var(--color-dark-500);
+    padding-inline: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid transparent;
+    font-size: var(--font-size-lg);
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+
+    @include md {
+      width: auto;
+    }
+
+    .input {
+      color: var(--color-light-300);
+      background-color: transparent;
+      padding: var(--spacing-md);
+      outline: 0;
+      border: 0;
+
+      @include md {
+        padding: var(--spacing-sm);
+      }
+    }
+  }
+}

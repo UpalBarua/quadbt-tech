@@ -9,12 +9,14 @@ import parse from 'html-react-parser';
 import { BsBookmark } from 'react-icons/bs';
 import BookingModal from '../../components/BookingModal/BookingModal';
 import { useState } from 'react';
+import Header from '../../components/Header/Header';
+import { Waveform } from '@uiball/loaders';
 
 const Details = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
 
-  const { details, isLoading, isError } = useDetails(id);
+  const { details, isLoading, isError } = useDetails(id || '');
 
   const {
     genres,
@@ -26,63 +28,78 @@ const Details = () => {
     summary,
     premiered,
     network,
-  } = details;
+  } = details as Show;
 
   return (
     <main className={styles.details}>
-      <img className={styles.image} src={image?.original} alt={name} />
-      <div className={styles.body}>
-        <h2 className={styles.name}>{name}</h2>
-        <p className={styles.premiered}>
-          {premiered && format(new Date(premiered), 'd MMMM yyyy')}
-        </p>
-        <ul className={styles.information}>
-          {rating?.average && (
-            <li>
-              <AiFillStar color="hsl(35, 70%, 50%)" />
-              <span>{rating.average}</span>
-            </li>
-          )}
-          {runtime && (
-            <li>
-              <AiFillClockCircle color="hsl(165, 60%, 50%)" />
-              <span>{runtime}m</span>
-            </li>
-          )}
-          {language && (
-            <li>
-              <MdLanguage color="hsl(210, 50%, 50%)" />
-              <span>{language}</span>
-            </li>
-          )}
-        </ul>
-        <ul className={styles.genres}>
-          {genres?.map((genre: string) => (
-            <li>{genre}</li>
-          ))}
-        </ul>
-        {summary && parse(summary)}
-        <div className={styles.btnGroup}>
-          <button
-            className={styles.bookBtn}
-            onClick={() => setIsModalOpen(true)}>
-            <BsBookmark />
-            <span>Book</span>
-          </button>
-          <Link
-            className={styles.watchBtn}
-            to={network?.officialSite}
-            target="_blank">
-            <BiLinkExternal />
-            <span>Watch Now</span>
-          </Link>
+      <Header />
+      {isLoading && (
+        <div className={styles.message}>
+          <Waveform color="hsl(345, 79%, 54%)" size={50} />
         </div>
-      </div>
-      <BookingModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        showName={name}
-      />
+      )}
+      {isError && (
+        <div className={styles.message}>
+          <p className={styles.errorMessage}>Failed to load shows</p>
+        </div>
+      )}
+      {!isLoading && !isError && (
+        <div className={styles.container}>
+          <img className={styles.image} src={image?.original} alt={name} />
+          <div className={styles.body}>
+            <h2 className={styles.name}>{name}</h2>
+            <p className={styles.premiered}>
+              {premiered && format(new Date(premiered), 'd MMMM yyyy')}
+            </p>
+            <ul className={styles.information}>
+              {rating?.average && (
+                <li>
+                  <AiFillStar color="hsl(35, 70%, 50%)" />
+                  <span>{rating.average}</span>
+                </li>
+              )}
+              {runtime && (
+                <li>
+                  <AiFillClockCircle color="hsl(165, 60%, 50%)" />
+                  <span>{runtime}m</span>
+                </li>
+              )}
+              {language && (
+                <li>
+                  <MdLanguage color="hsl(210, 50%, 50%)" />
+                  <span>{language}</span>
+                </li>
+              )}
+            </ul>
+            <ul className={styles.genres}>
+              {genres?.map((genre: string, index: number) => (
+                <li key={index}>{genre}</li>
+              ))}
+            </ul>
+            {summary && parse(summary)}
+            <div className={styles.btnGroup}>
+              <button
+                className={styles.bookBtn}
+                onClick={() => setIsModalOpen(true)}>
+                <BsBookmark />
+                <span>Book</span>
+              </button>
+              <Link
+                className={styles.watchBtn}
+                to={network?.officialSite}
+                target="_blank">
+                <BiLinkExternal />
+                <span>Watch Now</span>
+              </Link>
+            </div>
+          </div>
+          <BookingModal
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            show={details}
+          />
+        </div>
+      )}
     </main>
   );
 };

@@ -35,6 +35,10 @@
     gap: var(--spacing-md);
   }
 
+  .information + p {
+    color: var(--color-light-400);
+  }
+
   li {
     display: flex;
     align-items: center;

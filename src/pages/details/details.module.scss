@@ -2,11 +2,20 @@
 
 .details {
   @include container;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-  padding-block: var(--spacing-lg);
-  align-items: start;
+
+  .container {
+    padding-block: 10rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+
+    @include md {
+      padding-block: 7rem;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-2xl);
+    }
+  }
 
   .image {
     border-radius: var(--border-radius-sm);
@@ -14,10 +23,6 @@
     height: 40rem;
     object-fit: cover;
     object-position: center;
-  }
-
-  @include md {
-    grid-template-columns: 1fr 1fr;
   }
 
   .body {
@@ -99,5 +104,17 @@
   .bookBtn {
     background-color: var(--color-accent-400);
     color: var(--color-light-300);
+  }
+
+  .message {
+    display: grid;
+    place-content: center;
+    min-height: 35rem;
+  }
+
+  .errorMessage {
+    font-size: var(--font-size-xl);
+    color: var(--color-light-500);
+    font-weight: var(--font-weight-semibold);
   }
 }

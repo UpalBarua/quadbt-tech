@@ -3,24 +3,15 @@
 .home {
   @include container;
 
-  .title {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    padding-block: var(--spacing-lg);
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 1px;
-  }
-
   .shows {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+    padding-block: 10rem;
 
     @include md {
       grid-template-columns: repeat(2, 1fr);
+      padding-block: 7rem;
     }
 
     @include lg {
@@ -28,41 +19,15 @@
     }
   }
 
-  .showsContainer {
+  .showContainer {
     display: grid;
     place-content: center;
-    // height: 30rem;
+    min-height: 35rem;
   }
 
   .errorMessage {
     font-size: var(--font-size-xl);
     color: var(--color-light-500);
     font-weight: var(--font-weight-semibold);
-  }
-
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .searchBar {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    background-color: var(--color-dark-500);
-    padding-inline: var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    border: 1px solid transparent;
-    font-size: var(--font-size-lg);
-
-    .input {
-      color: var(--color-light-300);
-      background-color: transparent;
-      padding: var(--spacing-sm);
-      outline: 0;
-      border: 0;
-    }
   }
 }
