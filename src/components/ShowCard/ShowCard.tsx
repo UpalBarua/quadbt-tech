@@ -2,6 +2,7 @@ import { AiFillClockCircle, AiFillStar } from 'react-icons/ai';
 import { MdLanguage } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import parse from 'html-react-parser';
 import styles from './ShowCard.module.scss';
 
 const ShowCard = ({
@@ -41,7 +42,7 @@ const ShowCard = ({
             </li>
           )}
         </ul>
-        <p>{summary.slice(0, 100)}</p>
+        {parse(summary.slice(0, 150) + '...')}
         <Link className={styles.link} to={`/shows/${id}`}>
           Details
         </Link>

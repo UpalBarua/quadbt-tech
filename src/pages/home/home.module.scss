@@ -17,7 +17,7 @@
   .shows {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
 
     @include md {
       grid-template-columns: repeat(2, 1fr);
@@ -26,5 +26,17 @@
     @include lg {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+
+  .showsContainer {
+    display: grid;
+    place-content: center;
+    // height: 30rem;
+  }
+
+  .errorMessage {
+    font-size: var(--font-size-xl);
+    color: var(--color-light-500);
+    font-weight: var(--font-weight-semibold);
   }
 }
