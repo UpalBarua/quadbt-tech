@@ -1,20 +1,30 @@
 @use '../../styles/index.scss' as *;
 
 .showCard {
-  display: grid;
-
   background-color: var(--color-dark-400);
+  border-radius: var(--border-radius-sm);
 
-  h2 {
-    font-size: var(--font-size-lg);
+  .image {
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+  }
+
+  .body {
+    display: grid;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-lg);
+  }
+
+  .name {
+    font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
   }
 
-  p {
-    font-size: var(--font-size-sm);
-  }
-
-  ul {
+  .information {
+    font-size: var(--font-size-lg);
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
@@ -28,5 +38,17 @@
 
   .link {
     background-color: var(--color-accent-400);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--spacing-lg);
+    outline: 0;
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-accent-500);
+    }
   }
 }
