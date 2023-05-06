@@ -1,0 +1,32 @@
+@use '../../styles/index.scss' as *;
+
+.showCard {
+  display: grid;
+
+  background-color: var(--color-dark-400);
+
+  h2 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+  }
+
+  p {
+    font-size: var(--font-size-sm);
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .link {
+    background-color: var(--color-accent-400);
+  }
+}
