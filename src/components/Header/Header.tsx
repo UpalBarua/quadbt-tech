@@ -22,7 +22,7 @@ const Header = ({ search, setSearch }: HeaderProps) => {
             type="text"
             placeholder="Search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setSearch?.(e.target.value)}
           />
         </form>
       </div>

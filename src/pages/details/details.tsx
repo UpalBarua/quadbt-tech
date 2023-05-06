@@ -96,7 +96,7 @@ const Details = () => {
           <BookingModal
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
-            show={details}
+            show={details as Show}
           />
         </div>
       )}
