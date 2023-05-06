@@ -1,0 +1,85 @@
+@use '../../styles/index.scss';
+
+.overlay {
+  background-color: var(--color-dark-300);
+  opacity: 70%;
+  position: fixed;
+  inset: 0;
+}
+
+.content {
+  background-color: var(--color-dark-500);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  padding: var(--spacing-xl);
+  outline: 0;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.form {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  border: 0;
+}
+
+.input {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md);
+  color: var(--color-light-400);
+  line-height: 1;
+  background-color: var(--color-dark-300);
+  outline: 0;
+  border: 2px solid transparent;
+}
+
+.input:focus {
+  border-color: hsla(0, 0%, 100%, 0.15);
+}
+
+.bookBtn {
+  background-color: var(--color-accent-400);
+  outline-style: 0;
+  border: 0;
+  padding: var(--spacing-md);
+  color: var(--color-light-300);
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-md);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-lg);
+}
+
+.closeBtn {
+  display: grid;
+  font-size: var(--font-size-lg);
+  color: var(--color-light-300);
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+}

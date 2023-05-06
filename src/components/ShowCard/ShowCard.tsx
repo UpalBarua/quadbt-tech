@@ -21,7 +21,9 @@ const ShowCard = ({
       <img className={styles.image} src={image?.original} alt={name} />
       <div className={styles.body}>
         <h2 className={styles.name}>{name}</h2>
-        <p>{format(new Date(premiered), 'd MMMM yyyy')}</p>
+        <p className={styles.premiered}>
+          {format(new Date(premiered), 'd MMMM yyyy')}
+        </p>
         <ul className={styles.information}>
           {rating.average && (
             <li>

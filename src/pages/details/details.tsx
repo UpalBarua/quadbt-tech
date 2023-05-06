@@ -1,13 +1,17 @@
 import { Link, useParams } from 'react-router-dom';
 import useDetails from '../../hooks/useDetails';
 import { format } from 'date-fns';
-import styles from './Details.module.scss';
+import styles from './details.module.scss';
 import { AiFillClockCircle, AiFillStar } from 'react-icons/ai';
-import { MdLanguage, MdNetworkCell } from 'react-icons/md';
+import { MdLanguage } from 'react-icons/md';
 import { BiLinkExternal } from 'react-icons/bi';
 import parse from 'html-react-parser';
+import { BsBookmark } from 'react-icons/bs';
+import BookingModal from '../../components/BookingModal/BookingModal';
+import { useState } from 'react';
 
 const Details = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { id } = useParams();
 
   const { details, isLoading, isError } = useDetails(id);
@@ -29,7 +33,9 @@ const Details = () => {
       <img className={styles.image} src={image?.original} alt={name} />
       <div className={styles.body}>
         <h2 className={styles.name}>{name}</h2>
-        <p>{premiered && format(new Date(premiered), 'd MMMM yyyy')}</p>
+        <p className={styles.premiered}>
+          {premiered && format(new Date(premiered), 'd MMMM yyyy')}
+        </p>
         <ul className={styles.information}>
           {rating?.average && (
             <li>
@@ -50,17 +56,30 @@ const Details = () => {
             </li>
           )}
         </ul>
-        {summary && parse(summary)}
         <ul className={styles.genres}>
           {genres?.map((genre: string) => (
             <li>{genre}</li>
           ))}
         </ul>
-        <Link className={styles.watchBtn} to={network?.officialSite}>
-          <BiLinkExternal />
-          <span>Watch On {network?.name}</span>
-        </Link>
+        {summary && parse(summary)}
+        <div className={styles.btnGroup}>
+          <button
+            className={styles.bookBtn}
+            onClick={() => setIsModalOpen(true)}>
+            <BsBookmark />
+            <span>Book</span>
+          </button>
+          <Link className={styles.watchBtn} to={network?.officialSite}>
+            <BiLinkExternal />
+            <span>Watch Now</span>
+          </Link>
+        </div>
       </div>
+      <BookingModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        showName={name}
+      />
     </main>
   );
 };
